@@ -1,0 +1,76 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Launch website",
+        "description": "",
+        "id": "the-age;launch-website",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3594729634,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the user launches the browser type as Firefox",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Firefox",
+                  "offset": 38
+                }
+              ],
+              "location": "TheAgeStepDefs.launchBrowser(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4981365893,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the user enters the url in the browser",
+            "match": {
+              "location": "TheAgeStepDefs.navigateTo()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 19122625,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "The Age Homepage should be displayed",
+            "match": {
+              "location": "TheAgeStepDefs.pageDisplayed()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 223990398,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user closes the browser",
+            "match": {
+              "location": "TheAgeStepDefs.closeBrowser()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "The Age",
+    "description": "",
+    "id": "the-age",
+    "keyword": "Feature",
+    "uri": "Test001.feature"
+  }
+]
