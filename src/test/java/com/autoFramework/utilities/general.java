@@ -1,5 +1,11 @@
 package com.autoFramework.utilities;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,6 +28,31 @@ public class general {
         System.out.println("Input value : " + lnum);
         System.out.println("Inverted value : " + invNum);
     }
+
+    public void waitForText(WebDriver driver, By element, String waitForText, int waitTimeSecs) {
+        String text = driver.findElement(element).getText();
+        int i = 0;
+        while(i<waitTimeSecs && !text.equals(waitForText)){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            text = driver.findElement(element).getText();
+            i++;
+        }
+    }
+    public void waitForLoad(WebDriver driver) {
+        ExpectedCondition<Boolean> pageLoadCondition = new
+                ExpectedCondition<Boolean>() {
+                    public Boolean apply(WebDriver driver) {
+                        return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                    }
+                };
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(pageLoadCondition);
+    }
+
     public static void findDuplicates(){
         ArrayList<String> list = new ArrayList<String>();
 

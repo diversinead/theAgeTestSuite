@@ -8,13 +8,21 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by sdiver on 5/19/2017.
  */
-public class theAge_homePage {
+public class TheAgeHomePage extends TheAgeBase {
 
     // Page Elements
-    protected String url = "http://www.theage.com.au/";
-    protected String pageTitle = "Latest & Breaking";
+    private String url = "http://www.theage.com.au/";
+    private String pageTitle = "Latest & Breaking";
     private By search = By.className("form search-box search-box--primary");
     private By searchField = By.id("site-search-placeholder");
+
+    public void navigateToUrl(WebDriver driver){
+        driver.navigate().to(url);
+    }
+
+    public void isPageDisplayed(WebDriver driver) {
+        Assert.assertTrue("title should start with Latest & Breaking", driver.getTitle().startsWith(pageTitle));
+    }
 
     public String getPageTitle(WebDriver driver)throws Exception {
         String title = null;
@@ -27,15 +35,6 @@ public class theAge_homePage {
         return title;
     }
 
-    // Page Methods
-    public void navigateToUrl(WebDriver driver)throws Exception {
-        try {
-            driver.navigate().to(url);
-        } catch(Exception e){
-            System.err.print(e);
-        }
-    }
-
     public void searchFor(WebDriver driver)throws Exception {
         try{
             driver.findElement(search).click();
@@ -46,14 +45,6 @@ public class theAge_homePage {
         }
     }
 
-    public void tidyUp(WebDriver driver) throws Exception {
-        try {
-            if (driver != null) {
-                driver.close();
-            }
-        }catch(Exception e){
-            System.err.print(e);
-        }
-    }
+
 
 }

@@ -16,24 +16,44 @@ public class driverFactory {
         String driverType;
         String driverExe;
 
-        if (driver == null) {
-            if (browserType.equals("Firefox")){
-                driverType = "webdriver.gecko.driver";
-                driverExe = "C:\\Selenium\\drivers\\geckodriver.exe";
-                System.setProperty(driverType, driverExe);
-                driver = new FirefoxDriver();
-            }else if (browserType.equals("Chrome")) {
-                driverType = "webdriver.chrome.driver";
-                driverExe = "C:\\Selenium\\drivers\\chromedriver.exe";
-                System.setProperty(driverType, driverExe);
-                driver = new ChromeDriver();
-            }else if (browserType.equals("IE")){
-                driverExe = "C:\\Selenium\\drivers\\IEDriverServer.exe";
-                driverType = "webdriver.ie.driver";
-                System.setProperty(driverType, driverExe);
-                driver = new InternetExplorerDriver();
-            }
+        if (browserType.equals("Firefox")){
+            driverType = "webdriver.gecko.driver";
+            driverExe = "C:\\Selenium\\drivers\\geckodriver.exe";
+            System.setProperty(driverType, driverExe);
+            driver = new FirefoxDriver();
+        }else if (browserType.equals("Chrome")) {
+            driverType = "webdriver.chrome.driver";
+            driverExe = "C:\\Selenium\\drivers\\chromedriver.exe";
+            System.setProperty(driverType, driverExe);
+            driver = new ChromeDriver();
+        }else if (browserType.equals("IE")){
+            driverExe = "C:\\Selenium\\drivers\\IEDriverServer.exe";
+            driverType = "webdriver.ie.driver";
+            System.setProperty(driverType, driverExe);
+            driver = new InternetExplorerDriver();
         }
         return driver;
+    }
+
+    public void navigateToUrl(String url)throws Exception {
+        try {
+            driver.navigate().to(url);
+        } catch(Exception e){
+            System.err.print(e);
+        }
+    }
+
+    public static String getTitle(){
+        return driver.getTitle();
+    }
+
+    public void tidyUp() throws Exception {
+        try {
+            if (driver != null) {
+                driver.close();
+            }
+        }catch(Exception e){
+            System.err.print(e);
+        }
     }
 }
