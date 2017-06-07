@@ -3,5 +3,6 @@ com\autoFramework\pageObjects\TheAgeHomePage.class
 com\autoFramework\utilities\general.class
 com\autoFramework\cucumber\TheAgeRunTests.class
 com\autoFramework\pageObjects\TheAgeBase.class
+com\autoFramework\utilities\general$1.class
 com\autoFramework\webdriver\driverFactory.class
 com\autoFramework\pageObjects\TheAgeWeatherPage.class

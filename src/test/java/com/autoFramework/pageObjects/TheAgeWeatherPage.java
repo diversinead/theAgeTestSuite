@@ -18,15 +18,21 @@ public class TheAgeWeatherPage extends TheAgeBase {
     private By suburbTitle = By.className("ff_tilte");
     private general utilities = new general();
 
-    public void navigateToUrl(WebDriver driver){
+    WebDriver driver;
+
+    public TheAgeWeatherPage(WebDriver driver){
+        this.driver = driver;
+    }
+
+    public void navigateToUrl(){
         driver.navigate().to(url);
     }
 
-    public void isPageDisplayed(WebDriver driver) {
+    public void isPageDisplayed() {
         Assert.assertTrue("Melbourne local weather forecast",driver.getTitle().startsWith(pageTitle));
     }
 
-    public void searchBySuburb(WebDriver driver, String suburb){
+    public void searchBySuburb(String suburb){
         driver.findElement(suburbSearch).click();
         driver.findElement(suburbSearch).sendKeys(suburb);
         driver.findElement(suburbSearch).sendKeys(Keys.ENTER);
@@ -36,10 +42,10 @@ public class TheAgeWeatherPage extends TheAgeBase {
 
         Assert.assertTrue(suburb, suburb.equals(driver.findElement(suburbTitle).getText()));
     }
-    public String getPageTitle(WebDriver driver){
+    public String getPageTitle(){
         return driver.getTitle();
     }
-    public String getURL(WebDriver driver){
+    public String getURL(){
         return driver.getCurrentUrl();
     }
 

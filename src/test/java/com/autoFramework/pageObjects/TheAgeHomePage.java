@@ -15,16 +15,21 @@ public class TheAgeHomePage extends TheAgeBase {
     private String pageTitle = "Latest & Breaking";
     private By search = By.className("form search-box search-box--primary");
     private By searchField = By.id("site-search-placeholder");
+    WebDriver driver;
 
-    public void navigateToUrl(WebDriver driver){
+    public TheAgeHomePage(WebDriver driver){
+        this.driver = driver;
+    }
+
+    public void navigateToUrl(){
         driver.navigate().to(url);
     }
 
-    public void isPageDisplayed(WebDriver driver) {
+    public void isPageDisplayed() {
         Assert.assertTrue("title should start with Latest & Breaking", driver.getTitle().startsWith(pageTitle));
     }
 
-    public String getPageTitle(WebDriver driver)throws Exception {
+    public String getPageTitle()throws Exception {
         String title = null;
         try{
             title = driver.getTitle();
@@ -35,7 +40,7 @@ public class TheAgeHomePage extends TheAgeBase {
         return title;
     }
 
-    public void searchFor(WebDriver driver)throws Exception {
+    public void searchFor()throws Exception {
         try{
             driver.findElement(search).click();
             driver.findElement(searchField).sendKeys("Sport");

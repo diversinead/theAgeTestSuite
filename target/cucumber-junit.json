@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 3976662,
+              "duration": 5052296743,
               "status": "passed"
             },
             "match": {
@@ -23,22 +23,10 @@
         "steps": [
           {
             "result": {
-              "duration": 5397790547,
+              "duration": 5856724733,
               "status": "passed"
             },
             "line": 4,
-            "name": "the user launches the browser",
-            "match": {
-              "location": "TheAgeStepDefs.launchBrowser()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 6048410567,
-              "status": "passed"
-            },
-            "line": 5,
             "name": "the user enters the home page url in the browser",
             "match": {
               "location": "TheAgeStepDefs.navigateToHome()"
@@ -47,10 +35,10 @@
           },
           {
             "result": {
-              "duration": 9902773,
+              "duration": 9224851,
               "status": "passed"
             },
-            "line": 6,
+            "line": 5,
             "name": "The Age Homepage is displayed",
             "match": {
               "location": "TheAgeStepDefs.homePageDisplayed()"
@@ -59,10 +47,10 @@
           },
           {
             "result": {
-              "duration": 262726858,
+              "duration": 251244102,
               "status": "passed"
             },
-            "line": 7,
+            "line": 6,
             "name": "the user closes the browser",
             "match": {
               "location": "TheAgeStepDefs.closeBrowser()"
@@ -85,7 +73,7 @@
         "before": [
           {
             "result": {
-              "duration": 36957,
+              "duration": 2611293947,
               "status": "passed"
             },
             "match": {
@@ -102,22 +90,10 @@
         "steps": [
           {
             "result": {
-              "duration": 2627729769,
+              "duration": 4357842471,
               "status": "passed"
             },
             "line": 4,
-            "name": "the user launches the browser",
-            "match": {
-              "location": "TheAgeStepDefs.launchBrowser()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 5102148244,
-              "status": "passed"
-            },
-            "line": 5,
             "name": "the user enters the weather page url in the browser",
             "match": {
               "location": "TheAgeStepDefs.navigateToWeather()"
@@ -126,10 +102,10 @@
           },
           {
             "result": {
-              "duration": 7467501,
+              "duration": 14891496,
               "status": "passed"
             },
-            "line": 6,
+            "line": 5,
             "name": "The Age Weather page is displayed",
             "match": {
               "location": "TheAgeStepDefs.weatherPageDisplayed()"
@@ -138,10 +114,10 @@
           },
           {
             "result": {
-              "duration": 2106465599,
+              "duration": 2482335043,
               "status": "passed"
             },
-            "line": 7,
+            "line": 6,
             "name": "the user searches on suburb as South Yarra",
             "match": {
               "arguments": [
@@ -156,10 +132,10 @@
           },
           {
             "result": {
-              "duration": 321870179,
+              "duration": 275890928,
               "status": "passed"
             },
-            "line": 8,
+            "line": 7,
             "name": "the user closes the browser",
             "match": {
               "location": "TheAgeStepDefs.closeBrowser()"

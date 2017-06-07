@@ -13,15 +13,14 @@ public abstract class TheAgeBase {
     protected Scenario scenario = null;
 
     //Constructor
-    TheAgeBase(){
-
+    public TheAgeBase(){
     }
 
     public void before(Scenario scenario) {
         this.scenario = scenario;
     }
 
-    public abstract void isPageDisplayed(WebDriver driver);
-    public abstract void navigateToUrl(WebDriver driver);
+    public abstract void isPageDisplayed();
+    public abstract void navigateToUrl();
 
 }

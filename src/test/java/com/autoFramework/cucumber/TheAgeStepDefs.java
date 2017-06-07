@@ -24,13 +24,14 @@ public class TheAgeStepDefs {
     private TheAgeWeatherPage theAgeWeatherPage;
 
     private static final String BROWSER = "browser";
-    private String browserType = System.getProperty(BROWSER, "Firefox");
+    private String browserType = System.getProperty(BROWSER, "Firefox"); //Firefox Chrome
 
 
     // Constructor
     public TheAgeStepDefs(){
-        theAgeHomePage = new TheAgeHomePage();
-        theAgeWeatherPage = new TheAgeWeatherPage();
+        driver = df.setBrowser(browserType);
+        theAgeHomePage = new TheAgeHomePage(driver);
+        theAgeWeatherPage = new TheAgeWeatherPage(driver);
     }
     @Before
     public void before(Scenario scenario) {
@@ -38,34 +39,29 @@ public class TheAgeStepDefs {
         theAgeWeatherPage.before(scenario);
     }
 
-    @Given("^the user launches the browser$")
-    public void launchBrowser() throws Throwable {
-        driver = df.setBrowser(browserType);
-    }
-
     @When("^the user enters the home page url in the browser$")
     public void navigateToHome() throws Exception{
-        theAgeHomePage.navigateToUrl(driver);
+        theAgeHomePage.navigateToUrl();
     }
 
     @When("^the user enters the weather page url in the browser$")
     public void navigateToWeather() throws Exception{
-        theAgeWeatherPage.navigateToUrl(driver);
+        theAgeWeatherPage.navigateToUrl();
     }
 
     @Then("^The Age Homepage is displayed$")
     public void homePageDisplayed() throws Exception{
-        theAgeHomePage.isPageDisplayed(driver);
+        theAgeHomePage.isPageDisplayed();
     }
 
     @Then("^The Age Weather page is displayed$")
     public void weatherPageDisplayed() throws Exception{
-        theAgeWeatherPage.isPageDisplayed(driver);
+        theAgeWeatherPage.isPageDisplayed();
     }
 
     @Then("^the user searches on suburb as ([^\"]*)$")
     public void searchWeatherBySuburb(String suburb) throws Exception{
-        theAgeWeatherPage.searchBySuburb(driver,suburb);
+        theAgeWeatherPage.searchBySuburb(suburb);
     }
 
     @When("^the user closes the browser$")
