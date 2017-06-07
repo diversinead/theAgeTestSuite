@@ -3,6 +3,7 @@ package com.autoFramework.utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,8 +30,8 @@ public class general {
         System.out.println("Inverted value : " + invNum);
     }
 
-    public void waitForText(WebDriver driver, By element, String waitForText, int waitTimeSecs) {
-        String text = driver.findElement(element).getText();
+    public void waitForText(WebDriver driver, WebElement element, String waitForText, int waitTimeSecs) {
+        String text = element.getText();
         int i = 0;
         while(i<waitTimeSecs && !text.equals(waitForText)){
             try {
@@ -38,7 +39,7 @@ public class general {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            text = driver.findElement(element).getText();
+            text = element.getText();
             i++;
         }
     }

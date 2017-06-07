@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import com.autoFramework.utilities.general;
 
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,16 +14,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by sdiver on 6/4/2017.
  */
 public class TheAgeWeatherPage extends TheAgeBase {
-    private String url = "http://weather.theage.com.au/local-forecast/vic/melbourne";
-    private String pageTitle = "Melbourne local weather forecast";
-    private By suburbSearch = By.id("search_locality");
-    private By suburbTitle = By.className("ff_tilte");
-    private general utilities = new general();
 
     WebDriver driver;
+    private String url = "http://weather.theage.com.au/local-forecast/vic/melbourne";
+    private String pageTitle = "Melbourne local weather forecast";
+
+    @FindBy(id = "search_locality")
+    private WebElement suburbSearch;
+
+    @FindBy(className = "ff_tilte")
+    private WebElement suburbTitle;
+
+    private general utilities = new general();
 
     public TheAgeWeatherPage(WebDriver driver){
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void navigateToUrl(){
@@ -33,14 +41,14 @@ public class TheAgeWeatherPage extends TheAgeBase {
     }
 
     public void searchBySuburb(String suburb){
-        driver.findElement(suburbSearch).click();
-        driver.findElement(suburbSearch).sendKeys(suburb);
-        driver.findElement(suburbSearch).sendKeys(Keys.ENTER);
+        suburbSearch.click();
+        suburbSearch.sendKeys(suburb);
+        suburbSearch.sendKeys(Keys.ENTER);
 
         utilities.waitForText(driver, suburbTitle, suburb, 10);
         //wait.until(ExpectedConditions.textToBePresentInElementLocated(suburbTitle, suburb));
 
-        Assert.assertTrue(suburb, suburb.equals(driver.findElement(suburbTitle).getText()));
+        Assert.assertTrue(suburb, suburb.equals(suburbTitle.getText()));
     }
     public String getPageTitle(){
         return driver.getTitle();

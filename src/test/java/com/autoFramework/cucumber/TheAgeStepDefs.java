@@ -12,6 +12,8 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import java.util.logging.Logger;
+
 
 /**
  * Created by sdiver on 6/1/2017.
@@ -52,6 +54,11 @@ public class TheAgeStepDefs {
     @Then("^The Age Homepage is displayed$")
     public void homePageDisplayed() throws Exception{
         theAgeHomePage.isPageDisplayed();
+    }
+
+    @Then("^the user completes a search for ([^\"]*)$")
+    public void searchSite(String searchStr) throws Exception{
+        theAgeHomePage.searchFor(searchStr);
     }
 
     @Then("^The Age Weather page is displayed$")

@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 5052296743,
+              "duration": 3492237428,
               "status": "passed"
             },
             "match": {
@@ -23,7 +23,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5856724733,
+              "duration": 7372964945,
               "status": "passed"
             },
             "line": 4,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 9224851,
+              "duration": 212584263,
               "status": "passed"
             },
             "line": 5,
@@ -47,7 +47,7 @@
           },
           {
             "result": {
-              "duration": 251244102,
+              "duration": 380530994,
               "status": "passed"
             },
             "line": 6,
@@ -64,7 +64,7 @@
     "description": "",
     "id": "the-age",
     "keyword": "Feature",
-    "uri": "Test001_LaunchHome.feature"
+    "uri": "Test001_Home.feature"
   },
   {
     "line": 1,
@@ -73,7 +73,92 @@
         "before": [
           {
             "result": {
-              "duration": 2611293947,
+              "duration": 2609140083,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TheAgeStepDefs.before(Scenario)"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Search website",
+        "description": "",
+        "id": "the-age;search-website",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6370761421,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the user enters the home page url in the browser",
+            "match": {
+              "location": "TheAgeStepDefs.navigateToHome()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 961504541,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the user completes a search for Sport",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Sport",
+                  "offset": 32
+                }
+              ],
+              "location": "TheAgeStepDefs.searchSite(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 8486494,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "The Age Homepage is displayed",
+            "match": {
+              "location": "TheAgeStepDefs.homePageDisplayed()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 282593892,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user closes the browser",
+            "match": {
+              "location": "TheAgeStepDefs.closeBrowser()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "The Age",
+    "description": "",
+    "id": "the-age",
+    "keyword": "Feature",
+    "uri": "Test002_HomeSearch.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2607050123,
               "status": "passed"
             },
             "match": {
@@ -90,7 +175,7 @@
         "steps": [
           {
             "result": {
-              "duration": 4357842471,
+              "duration": 7252685786,
               "status": "passed"
             },
             "line": 4,
@@ -102,7 +187,7 @@
           },
           {
             "result": {
-              "duration": 14891496,
+              "duration": 30829320,
               "status": "passed"
             },
             "line": 5,
@@ -114,7 +199,7 @@
           },
           {
             "result": {
-              "duration": 2482335043,
+              "duration": 3581915165,
               "status": "passed"
             },
             "line": 6,
@@ -132,7 +217,7 @@
           },
           {
             "result": {
-              "duration": 275890928,
+              "duration": 370416880,
               "status": "passed"
             },
             "line": 7,
@@ -149,6 +234,6 @@
     "description": "",
     "id": "the-age",
     "keyword": "Feature",
-    "uri": "Test002_Weather.feature"
+    "uri": "Test101_Weather.feature"
   }
 ]

@@ -4,21 +4,28 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by sdiver on 5/19/2017.
  */
 public class TheAgeHomePage extends TheAgeBase {
 
-    // Page Elements
+    WebDriver driver;
     private String url = "http://www.theage.com.au/";
     private String pageTitle = "Latest & Breaking";
-    private By search = By.className("form search-box search-box--primary");
-    private By searchField = By.id("site-search-placeholder");
-    WebDriver driver;
+
+    @FindBy(id = "site-search-placeholder")
+    private WebElement searchField;
+
+    @FindBy(id = "fm-id-6")
+    private WebElement search;
 
     public TheAgeHomePage(WebDriver driver){
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void navigateToUrl(){
@@ -40,11 +47,11 @@ public class TheAgeHomePage extends TheAgeBase {
         return title;
     }
 
-    public void searchFor()throws Exception {
+    public void searchFor(String searchStr)throws Exception {
         try{
-            driver.findElement(search).click();
-            driver.findElement(searchField).sendKeys("Sport");
-            driver.findElement(searchField).sendKeys(Keys.ENTER);
+            search.click();
+            searchField.sendKeys(searchStr);
+            searchField.sendKeys(Keys.ENTER);
         } catch(Exception e){
             System.err.print(e);
         }
